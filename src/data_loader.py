@@ -1,13 +1,13 @@
 from pathlib import Path
 import pandas as pd
 
+from src.config import DATASETS_ROOT
+
 
 def load_loan_data():
-    """
-    Load the loan dataset from the project's data directory.
-    """
+    data_path = DATASETS_ROOT / "credit-risk" / "loan_data.csv"
 
-    project_root = Path(__file__).resolve().parent.parent
-    data_path = project_root / "data" / "raw" / "loan_data.csv"
+    print("DEBUG data_path :", data_path)
+    print("DEBUG exists    :", data_path.exists())
 
     return pd.read_csv(data_path)
